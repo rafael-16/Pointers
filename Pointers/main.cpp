@@ -24,7 +24,7 @@ int SumElement(int num, ...)
 
 void main()
 {
-	setlocale(LC_ALL, "");
+	system("chcp 1251");
 #ifdef POINTERS_BASICS
 
 	int a = 2;

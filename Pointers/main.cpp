@@ -1,6 +1,5 @@
 ﻿#include<iostream>
-#include<stdlib.h>
-#include<stdarg.h>
+
 using namespace std;
 
 // 1. Вычислить максимально возможный адресуемый объем памяти если разрядность адреса составляет 8 Байт;

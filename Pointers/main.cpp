@@ -1,4 +1,5 @@
 ﻿#include<iostream>
+#include<cstdarg>
 
 using namespace std;
 
@@ -11,17 +12,10 @@ using namespace std;
 
 
 
-int SumElement(int num, ...)
-{
-	int* ptr = &num + 1;
-	int result = 0;
-	for (; num > 0; num--)
-	{
-		cout << *ptr << '\t';
-		result += *(ptr++);
-	}
-	return result;
-}
+//int SumElement(int num, ...);
+
+template<typename T>
+T SumElement(int num, T value, ...);
 
 void main()
 {
@@ -48,5 +42,45 @@ void main()
 	}
 #endif // POINTER_BASICS
 
-	cout << "\nСумма элементов = " << SumElement(4, 10, 50, 20, 20);
+	cout << "\nСумма элементов = " << SumElement(6, 18, 71, 22, 9, 36, 57);
+}
+
+//int SumElement(int num, ...)// - С помощью цикла while, не работает в х64
+//{
+//	int* ptr = &num;
+//	int result = 0;
+//	while (*ptr)
+//	{
+//		cout << *ptr << ", ";
+//		result += *(ptr++);
+//	}
+//	return result;
+//}
+
+// * * * *
+
+//int SumElement(int num, ...)// - С помощью цикла for, не работает в х64
+//{
+//	int result = 0;
+//	for (int* ptr = &num; *ptr; result += *(ptr++));
+//	return result;
+//}
+
+// * * * *
+
+template<typename T>
+T SumElement(int num, T value, ...)// С помощью подключенной библиотеки 'stdard' или 'cstdarg.h' работает в х86 и х64
+{
+	T result = 0;
+	va_list list;
+	va_start(list, num);
+	for (int i = 0; i < num; i++)
+	{
+		value = va_arg(list, T);
+		cout << value << "| ";
+		result += value;
+	}
+	cout << endl;
+	va_end(list);
+	return result;
 }

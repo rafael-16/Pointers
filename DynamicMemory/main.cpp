@@ -44,7 +44,7 @@ void AddElement(int*& ARR, int& SIZE, int VALUE)
 	int* NewArr = new int[SIZE + 1];//объявляем новый массив на размер больше
 	for (int i = 0; i < SIZE; i++)
 		NewArr[i] = ARR[i];         // копируем все значения в новый массив
-	NewArr[SIZE++] = VALUE;         // дописываем добавленное значение и меняем значение размера
+	NewArr[SIZE++] = VALUE;         // добавляем значение и меняем значение размера
 	delete[] ARR;                   // удаляем старый массив
 	ARR = NewArr;                   // присваиваем указателю новый массив
 }

@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 
 using namespace std;
 
@@ -14,7 +14,7 @@ void main()
 	int even_size = 0;
 	int odd_size = 0;
 
-	cout << "Ââåäèòå ðàçìåð ìàññèâà: "; cin >> size;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¼Ð°ÑÑÐ¸Ð²Ð°: "; cin >> size;
 	int* arr = new int[size];
 	Fill_Rand(arr, size);
 	Print_Arr(arr, size);
@@ -22,14 +22,14 @@ void main()
 
 	int* even = new int[size];
 	Fill_Even(arr, even, size, even_size);
-	cout << "Ìàññèâ ñ ÷åòíûìè ÷èñëàìè:" << endl;
+	cout << "ÐœÐ°ÑÑÐ¸Ð² Ñ Ñ‡ÐµÑ‚Ð½Ñ‹Ð¼Ð¸ Ñ‡Ð¸ÑÐ»Ð°Ð¼Ð¸:" << endl;
 	Print_Arr(even, even_size);
 	
 	cout << "\n\n";
 
 	int* odd = new int[size];
 	Fill_Odd(arr, odd, size, odd_size);
-	cout << "Ìàññèâ ñ íå÷åòíûìè ÷èñëàìè:" << endl;
+	cout << "ÐœÐ°ÑÑÐ¸Ð² Ñ Ð½ÐµÑ‡ÐµÑ‚Ð½Ñ‹Ð¼Ð¸ Ñ‡Ð¸ÑÐ»Ð°Ð¼Ð¸:" << endl;
 	Print_Arr(odd, odd_size);
 
 	delete[] even;

@@ -1,4 +1,4 @@
-
+п»ї
 #include<iostream>
 using namespace std;
 
@@ -12,14 +12,14 @@ void main()
 	setlocale(LC_ALL, "");
 
 	int size;
-	cout << "Введите размер массива: "; cin >> size;
+	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°: "; cin >> size;
 	int* arr = new int[size];
 
 	Fill_Rand(arr, size);
 	Print_Arr(arr, size);
 	cout << endl;
 	int value;
-	cout << "Введите число для добавления: "; cin >> value;
+	cout << "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ: "; cin >> value;
 	AddElement(arr, size, value);
 	Print_Arr(arr, size);
 
@@ -42,10 +42,10 @@ void Print_Arr(int* ARR, const int SIZE)
 
 void AddElement(int*& ARR, int& SIZE, int VALUE)
 {
-	int* NewArr = new int[SIZE + 1];//объявляем новый массив на размер больше
+	int* NewArr = new int[SIZE + 1];//РѕР±СЉСЏРІР»СЏРµРј РЅРѕРІС‹Р№ РјР°СЃСЃРёРІ РЅР° СЂР°Р·РјРµСЂ Р±РѕР»СЊС€Рµ
 	for (int i = 0; i < SIZE; i++)
-		NewArr[i] = ARR[i];         // копируем все значения в новый массив
-	NewArr[SIZE++] = VALUE;         // добавляем значение и меняем значение размера
-	delete[] ARR;                   // удаляем старый массив
-	ARR = NewArr;                   // присваиваем указателю новый массив
+		NewArr[i] = ARR[i];         // РєРѕРїРёСЂСѓРµРј РІСЃРµ Р·РЅР°С‡РµРЅРёСЏ РІ РЅРѕРІС‹Р№ РјР°СЃСЃРёРІ
+	NewArr[SIZE++] = VALUE;         // РґРѕР±Р°РІР»СЏРµРј Р·РЅР°С‡РµРЅРёРµ Рё РјРµРЅСЏРµРј Р·РЅР°С‡РµРЅРёРµ СЂР°Р·РјРµСЂР°
+	delete[] ARR;                   // СѓРґР°Р»СЏРµРј СЃС‚Р°СЂС‹Р№ РјР°СЃСЃРёРІ
+	ARR = NewArr;                   // РїСЂРёСЃРІР°РёРІР°РµРј СѓРєР°Р·Р°С‚РµР»СЋ РЅРѕРІС‹Р№ РјР°СЃСЃРёРІ
 }

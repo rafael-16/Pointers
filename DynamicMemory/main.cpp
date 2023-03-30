@@ -1,8 +1,9 @@
+
 #include<iostream>
 using namespace std;
 
-void FillRand(int* ARR, const int SIZE);
-void PrintArr(int* ARR, const int SIZE);
+void Fill_Rand(int* ARR, const int SIZE);
+void Print_Arr(int* ARR, const int SIZE);
 void AddElement(int*& ARR, int& SIZE, int VALUE);
 
 
@@ -14,25 +15,25 @@ void main()
 	cout << "¬ведите размер массива: "; cin >> size;
 	int* arr = new int[size];
 
-	FillRand(arr, size);
-	PrintArr(arr, size);
+	Fill_Rand(arr, size);
+	Print_Arr(arr, size);
 	cout << endl;
 	int value;
 	cout << "¬ведите число дл€ добавлени€: "; cin >> value;
 	AddElement(arr, size, value);
-	PrintArr(arr, size);
+	Print_Arr(arr, size);
 
 	delete[] arr;
 }
 
 
-void FillRand(int* ARR, const int SIZE)
+void Fill_Rand(int* ARR, const int SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
 		*(ARR + i) = rand() % 50;
 }
 
-void PrintArr(int* ARR, const int SIZE)
+void Print_Arr(int* ARR, const int SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
 		cout << *(ARR + i) << '\t';

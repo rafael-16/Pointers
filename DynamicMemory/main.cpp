@@ -2,14 +2,22 @@
 #include<iostream>
 using namespace std;
 
-void Fill_Rand(int* ARR, const int SIZE);
-void Print_Arr(int* ARR, const int SIZE);
-int* Push_Back(int arr[], int& size, int value);
-int* Push_Front(int arr[], int& size, int value);
-int* Pop_Back(int arr[], int& size);
-int* Pop_Front(int arr[], int& size);
-int* Insert_To_Arr(int arr[], int& size, int index, int value);
-int* Erase_From_Arr(int arr[], int& size, int index);
+template<typename T>
+void Fill_Rand(T* ARR, const int SIZE);
+template<typename T>
+void Print_Arr(T* ARR, const int SIZE);
+template<typename T>
+T* Push_Back(T arr[], int& size, T value);
+template<typename T>
+T* Push_Front(T arr[], int& size, T value);
+template<typename T>
+T* Pop_Back(T arr[], int& size);
+template<typename T>
+T* Pop_Front(T arr[], int& size);
+template<typename T>
+T* Insert_To_Arr(T arr[], int& size, int index, T value);
+template<typename T>
+T* Erase_From_Arr(T arr[], int& size, int index);
 
 
 void main()
@@ -43,24 +51,25 @@ void main()
 	delete[] arr;
 }
 
-
-void Fill_Rand(int* ARR, const int SIZE)
+template<typename T>
+void Fill_Rand(T* ARR, const int SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
 		*(ARR + i) = rand() % 50;
 }
 
-void Print_Arr(int* ARR, const int SIZE)
+template<typename T>
+void Print_Arr(T* ARR, const int SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
 		cout << *(ARR + i) << '\t';
 	cout << endl;
 }
 
-
-int* Push_Back(int arr[], int& size, int value)
+template<typename T>
+T* Push_Back(T arr[], int& size, T value)
 {
-	int* buffer = new int[size + 1];//объявляем новый массив на размер больше
+	T* buffer = new T[size + 1];//объявляем новый массив на размер больше
 	for (int i = 0; i < size; i++)
 		buffer[i] = arr[i];         // копируем значения в новый массив
 	delete[] arr;                   // удаляем старый массив
@@ -70,9 +79,10 @@ int* Push_Back(int arr[], int& size, int value)
 	return arr;
 }
 
-int* Push_Front(int arr[], int& size, int value)
+template<typename T>
+T* Push_Front(T arr[], int& size, T value)
 {
-	int* buffer = new int[size + 1];
+	T* buffer = new T[size + 1];
 	for (int i = 0; i < size; i++)
 		buffer[i + 1] = arr[i];
 	delete[] arr;
@@ -82,27 +92,30 @@ int* Push_Front(int arr[], int& size, int value)
 	return arr;
 }
 
-int* Pop_Back(int arr[], int& size)
+template<typename T>
+T* Pop_Back(T arr[], int& size)
 {
-	int* buffer = new int[--size];
+	T* buffer = new T[--size];
 	for (int i = 0; i < size; i++)
 		buffer[i] = arr[i];
 	delete[] arr;
 	return buffer;
 }
 
-int* Pop_Front(int arr[], int& size)
+template<typename T>
+T* Pop_Front(T arr[], int& size)
 {
-	int* buffer = new int[--size];
+	T* buffer = new T[--size];
 	for (int i = 0; i < size; i++)
 		buffer[i] = arr[i + 1];
 	delete[] arr;
 	return buffer;
 }
 
-int* Insert_To_Arr(int arr[], int& size, int index, int value)
+template<typename T>
+T* Insert_To_Arr(T arr[], int& size, int index, T value)
 {
-	int* buffer = new int[size + 1];
+	T* buffer = new T[size + 1];
 	for (int i = 0; i <= size; i++)
 	{
 		if (i < index)
@@ -118,9 +131,10 @@ int* Insert_To_Arr(int arr[], int& size, int index, int value)
 	return arr;
 }
 
-int* Erase_From_Arr(int arr[], int& size, int index)
+template<typename T>
+T* Erase_From_Arr(T arr[], int& size, int index)
 {
-	int* buffer = new int[--size];
+	T* buffer = new T[--size];
 	for (int i = 0; i < size; i++)
 	{
 		if (i < index)

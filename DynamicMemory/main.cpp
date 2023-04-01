@@ -2,8 +2,10 @@
 #include<iostream>
 using namespace std;
 
-void Fill_Rand(int* ARR, const int SIZE);
-void Print_Arr(int* ARR, const int SIZE);
+template<typename T>
+void Fill_Rand(T* ARR, const int SIZE);
+template<typename T>
+void Print_Arr(T* ARR, const int SIZE);
 template<typename T>
 T* Push_Back(T arr[], int& size, T value);
 template<typename T>
@@ -49,14 +51,15 @@ void main()
 	delete[] arr;
 }
 
-
-void Fill_Rand(int* ARR, const int SIZE)
+template<typename T>
+void Fill_Rand(T* ARR, const int SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
 		*(ARR + i) = rand() % 50;
 }
 
-void Print_Arr(int* ARR, const int SIZE)
+template<typename T>
+void Print_Arr(T* ARR, const int SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
 		cout << *(ARR + i) << '\t';
